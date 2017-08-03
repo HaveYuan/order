@@ -1,0 +1,66 @@
+
+<view class="header">
+  <view class="re" bindtap="rePrev" bindtap="returnPerson">返回</view>
+  <text>修改资料</text>
+</view>
+
+<view class="info-box">
+  <view class="con">
+    <text class="i">头像</text>
+    <view class="headBG">
+      <image src="{{avatarUrl}}"></image>
+    </view>
+  </view>
+  <view class="con">
+    <text>昵称</text>
+    <view class="rightbox" bindtap="showNickBox">
+      <text class="r">{{nickname}}</text>
+      <text>></text>
+    </view>
+  </view>
+  <view class="con">
+    <text>性别</text>
+    <view class="sexbox">
+      <radio-group wx:if="{{gender == 0 || gender == 1}}">
+        <radio checked/>男
+        <radio/>女
+      </radio-group>
+      <radio-group wx:if="{{gender == 2}}">
+        <radio/>男
+        <radio checked/>女
+      </radio-group>
+    </view>
+  </view>
+</view>
+
+<view class="con phonebox">
+  <text>手机号</text>
+  <view class="rightbox" bindtap="showPhoneBox">
+    <text wx:if="{{phoneNum == ''}}" class="r">暂无手机号</text>
+    <text wx:else="{{phoneNum != ''}}" class="r">{{phoneNum}}</text>
+    <text>></text>
+  </view>
+</view>
+
+<!-- 修改昵称 -->
+<view class="box-wrap" style="visibility:{{nickBox}}">
+  <view class="bw-box">
+    <input type="text" value="{{nameValue}}" placeholder="请输入昵称" bindinput="changeNickname"/>
+    <text>4-30个字符，支持中英文和数字</text>
+    <view class="btn-wrap">
+      <button class="canl {{canlmin?'':'btnmin'}}" bindtouchstart="canltouchstart" bindtouchend="canltouchend" bindtap="nickCanl">取消</button>
+      <button class="sub  {{submin?'':'btnmin'}}" bindtouchstart="subtouchstart" bindtouchend="subtouchend" bindtap="nickSub">确定</button>
+    </view>
+  </view>
+</view>
+
+<!-- 修改手机号码 -->
+<view class="box-wrap" style="visibility:{{phoneBox}}">
+  <view class="bw-box">
+    <input type="text" value="{{phoneValue}}" placeholder="请输入手机号码" bindinput="changePhone"/>
+    <view class="btn-wrap">
+      <button class="canl {{canlmin?'':'btnmin'}}" bindtouchstart="canltouchstart" bindtouchend="canltouchend" bindtap="phoneCanl">取消</button>
+      <button class="sub  {{submin?'':'btnmin'}}" bindtouchstart="subtouchstart" bindtouchend="subtouchend" bindtap="phoneSub">确定</button>
+    </view>
+  </view>
+</view>

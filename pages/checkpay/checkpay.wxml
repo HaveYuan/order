@@ -1,0 +1,124 @@
+
+<view class="header">
+  <view class="re" bindtap="rePrev" bindtap="returngoods">返回</view>
+  <text>订单确认</text>
+</view>
+
+<scroll-view scroll-y="true" style="height:{{height}}px">
+  <!-- 餐桌号 -->
+  <view class="table">
+    <span>桌号</span>
+    <span class="tableNum">B7</span>
+  </view>
+
+  <!-- 菜品详情 -->
+  <view class="order-box">
+    <view class="order-top">
+      <view>
+        <span>已点菜品</span><span>({{totalCount}}份)</span>
+      </view>
+      <view class="del">
+        <span>清空</span>
+      </view>
+    </view>
+    <!-- 所点菜品 -->
+    <view class="order-middle">
+      <view class="foodItem" wx:for="{{carArray}}" wx:if="{{item.num > 0}}">
+        <view class="foodName">{{item.name}}</view>
+        <view class="foodNum">x{{item.num}}</view>
+        <view class="foodTolPrice">￥{{item.num*(item.price*100)/100}}</view>
+      </view>
+      <!-- <view class="foodItem">
+        <view class="foodName">韩式烤鱼</view>
+        <view class="foodNum">x1</view>
+        <view class="foodTolPrice">￥38.00</view>
+      </view>
+      <view class="foodItem">
+        <view class="foodName">香辣炸鸡</view>
+        <view class="foodNum">x1</view>
+        <view class="foodTolPrice">￥38.00</view>
+      </view>  -->
+    </view>
+    <view class="order-bottom">
+      <view>
+        <span>合计</span><span style="font-weight:bold;">￥{{totalPrice}}</span>
+      </view>
+      <view class="count">
+        <span>应付</span><span class="money">￥{{totalPrice}}</span>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单备注 -->
+  <view class="order-tip">
+    <view class="tip-top">
+      <span>订单备注</span>
+    </view>
+    <view class="tip-middle">
+      <view class="tm">
+        <radio-group class="hot" bindchange="hotCheckedChange">
+          <view class="tip-item {{hotCheck==0?'active':''}}">
+            <label class="">
+              <radio value="0" hidden="true" />不要辣
+            </label>
+          </view>
+          <view class="tip-item {{hotCheck==1?'active':''}}">
+            <label class="">
+              <radio value="1" hidden="true" />少放辣
+            </label>
+          </view>
+          <view class="tip-item {{hotCheck==2?'active':''}}">
+            <label class="">
+              <radio value="2" hidden="true" />多放辣
+            </label>
+          </view>
+        </radio-group>
+        <checkbox-group class="checkbox" bindchange="checkboxChange1">
+          <view class="tip-item">
+            <label class="{{act1?'active1':''}}">
+              <checkbox value="少放酱油" hidden="true"/>少放酱油
+            </label>
+          </view>
+        </checkbox-group>
+      </view>
+      <view class="tm">
+        <checkbox-group class="checkbox" bindchange="checkboxChange2">
+          <view class="tip-item" bindtap="active2">
+            <label class="{{act2?'active2':''}}" >
+              <checkbox value="少放盐" hidden="true" />少放盐
+            </label>
+          </view>
+          <view class="tip-item" bindtap="active3">
+            <label class="{{act3?'active3':''}}" >
+              <checkbox value="多点醋" hidden="true" />多点醋
+            </label>
+          </view>
+          <view class="tip-item" bindtap="active4">
+            <label class="{{act4?'active4':''}}'" >
+              <checkbox value="不要香菜" hidden="true" />不要香菜
+            </label>
+          </view>
+          <view class="tip-item"  bindtap="active5">
+            <label class="{{act5?'active5':''}}">
+              <checkbox value="不要洋葱" hidden="true"/>不要洋葱
+            </label>
+          </view>
+        </checkbox-group>
+      </view> 
+    </view>
+    <view class="tip-bottom">
+      <input placeholder="其它偏好或要求" />
+    </view>
+  </view>
+</scroll-view>
+<!-- 支付 -->
+<view class="pay-wrap">
+  <view class="payleft">
+    <view class="pl-top">应付<text>￥{{totalPrice}}</text></view>
+    <view class="pl-bottom">已点<text>{{totalCount}}</text>份</view>
+  </view>
+  <view class="payright">
+    <button>现金/其它方式</button>
+    <button bindtap="webchatPay">微信支付</button>
+  </view>
+</view>

@@ -1,0 +1,155 @@
+
+<!--pages/order/order.wxml-->
+<!-- header -->
+<view class="header">
+  <view class="per-info">
+    <text bindtap="aboutMe">个人中心</text>
+  </view>
+  <view class="accout">
+    <text bindtap="intoAlready">已点订单</text>
+  </view>
+</view>
+<view class="classname">二维码链接是：{{q}}</view>
+<view class="classname">餐桌号是：{{num}}</view>
+<!-- tabs -->
+<view class="nav bc_white">
+  <view class="{{order?'blue':'default'}}" bindtap="order">菜单列表</view>
+  <view class="{{detail?'blue':'default'}}" bindtap="detail">餐厅详情</view>
+</view>
+
+<!-- 菜单列表 -->
+<view class="{{order?'show':'hidden'}}">
+  <view class="goods">
+    <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" class="left-scroll">
+      <view wx:for="{{goods}}" class="menu-item border-1px" bindtap="selectMenu" data-item-index="{{index}}">
+        <view class="text">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+    <!-- </view> -->
+    <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" scroll-into-view="{{toView}}" class="foods-wrapper">
+      <view wx:for="{{goods}}" class="food-list food-list-hook" wx:for-index="parentIndex">
+        <view id="order{{parentIndex}}" class="title">{{item.name}}</view>
+        <view wx:for="{{item.foods}}" class="food-item" wx:for-item="food" data-food="{{food}}" bindtap="selectFoods">
+          <view class="icon">
+            <image src="{{food.icon}}" style="width: 57px;height: 57px"></image>
+          </view>
+          <view class="content">
+            <view class="name">{{food.name}}</view>
+            <view class="desc">{{food.description}}</view>
+            <view class="extra">
+              <text class="count">月售{{food.sellCount}}</text>
+              <text class="count">好评{{food.rating}}</text>
+            </view>
+            <view class="price">
+              <view class="now">￥{{food.price}}</view>
+              <view class="old" wx:if="{{food.oldPrice}}">￥{{food.oldPrice}}</view>
+            </view>
+
+            <!--cartControl-->
+            <view class="cartControl-wrapper">
+              <view class="cartControl">
+                <view name="fade">
+                  <view class="cart-decrease" wx:if="{{food.Count > 0}}" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" catchtap="decreaseCart">
+                    <view class="inner iconfont icon-jian" style="font-size:24px;color:#4cc9e5;"></view>
+                  </view>
+                  <view class="cart-count" wx:if="{{food.Count > 0 }}">{{food.Count}}</view>
+                  <view class=" iconfont icon-jia cart-add " style="color:#4cc9e5; " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" catchtap="addCart"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+
+    <!--购物车-->
+    <view>
+      <view>
+        <view class="shopCart">
+          <view class="content" bindtap="toggleList">
+            <view class="content-left">
+              <view class="logo-wrapper">
+                <view class="logo highlight">
+                  <view class="iconfont icon-gouwuche highlight"></view>
+                </view>
+                <view class="num" wx:if="{{totalCount> 0}}">{{totalCount}}</view>
+              </view>
+              <view class="price {{light}}">￥{{totalPrice}}</view>
+              <!-- <view class="desc">另需配送费￥{{deliveryPrice}}元</view> -->
+            </view>
+            <view class="content-right" catchtap="checkpay">
+              <view class="pay {{enough}} payClass">
+                <!-- {{payDesc}} -->
+                去结算
+              </view>
+            </view>
+          </view>
+          <view class="shopcart-list" style="display:{{cartShow}}">
+            <view class="list-header">
+              <view class="title">购物车</view>
+              <text class="empty" bindtap="empty">清空</text>
+            </view>
+            <scroll-view scroll-y="true" class="list-content">
+              <view class="shopcart-food" wx:for="{{carArray}}" wx:if="{{item.num > 0}}">
+                <span class="name"  wx:if="{{item.num > 0}}">{{item.name}}</span>
+                <view class="price" >
+                  <span>￥{{item.price*item.num}}</span> 
+                </view>
+
+                <!--cartControl-->
+                <view class="cartControl-wrapper" style="bottom:10px;">
+                  <view class="cartControl" style="width:80px;">
+                    <view name="fade">
+                      <view class="cart-decrease"  style="display:inline-block;" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" catchtap="decreaseShopCart">
+                        <view class="inner iconfont icon-jian" style="font-size:24px;color:#4cc9e5"></view>
+                      </view>
+                      <view class="cart-count"  style="display:inline-block;width:32px;text-align:center;font-size:14px;">{{item.num}}</view>
+                      <view class=" iconfont icon-jia cart-add " wx:if="{{item.num > 0}}" style="font-size:24px;color:#4cc9e5; padding:0;" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" catchtap="addShopCart"></view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view name="fade">
+      <view class="list-mask" wx:if="{{listShow}}" bindtap="hideList"></view>
+    </view>
+  </view>
+</view>
+
+<!-- 餐厅详情 -->
+<view class="{{detail?'show':'hidden'}}">
+  <view class="intro">
+    <view class="intro-img">
+      <image src="../../img/shop.jpg"></image>
+    </view>
+    <view class="restaurantName">
+      <text>米石科技餐厅</text>
+    </view>
+  </view>
+
+  <view class="call-way">
+    <view class="addr">
+      <text>广州市海珠区唐婕大厦1楼</text>
+    </view>
+    <view class="tell">
+      <text>13033332522</text>
+    </view>
+  </view>
+
+  <view class="time">
+    <view class="worktime">
+      <text>营业时间</text>
+      <text class="time-r">10:30-22:00</text>
+    </view>
+    <view class="intro-info">
+      <text>门店介绍:</text>
+    </view>
+  </view>
+</view>

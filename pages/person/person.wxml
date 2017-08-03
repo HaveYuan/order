@@ -1,0 +1,78 @@
+
+<view class="header">
+  <view class="re" bindtap="rePrev">返回</view>
+  <text>我的主页</text>
+</view>
+<!-- 个人信息 -->
+<view class="user_info">
+  <view class="info-box">
+    <image src="{{avatarUrl}}"></image>
+  </view>
+  <view class="infoShow">
+    <view class="username">
+      <text>{{nickname}}</text>
+      <span wx:if="{{gender == 1 || gender == 0}}" class="sex man"></span>
+      <span wx:if="{{gender == 2}}" class="sex female"></span>
+    </view>
+    <text class="phonenum">暂无手机号</text>
+  </view>
+  <view class="changeInfo" bindtap="change_info"></view>
+</view>
+<view class="nav bc_white">
+  <view class="{{myOrder?'black':'default'}}" bindtap="my_order">
+    <text>我的订单</text>
+  </view>
+  <view class="line">|</view>
+  <view class="{{serverInfo?'black':'default'}}" bindtap="server_info">
+    <text>服务纪录</text>
+  </view>
+</view>
+
+<!-- 我的订单 -->
+<view class="{{myOrder?'show':'hidden'}}">
+  <scroll-view scroll-y="true" style="height:{{scrollHeight}}px">
+    <view class="orderNums">
+      <view class="orderHead">
+        <view class="orderTime">2017-07-12 18:00:00</view>
+        <view class="orderTold">订单已完成</view>
+      </view>
+      <view class="orderContent">
+        <view class="orderImg">
+          <image src="../../img/shop.jpg"></image>
+        </view>
+        <view class="orderMiddle">
+          <view class="re-name">米石科技</view>
+          <view class="total">
+            <view class="orderLeft">1人共点了3份</view>
+            <view class="orderRight">共计<span>￥75元</span></view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+    <view class="orderNums">
+      <view class="orderHead">
+        <view class="orderTime">2017-07-12 18:00:00</view>
+        <view class="orderTold">订单已完成</view>
+      </view>
+      <view class="orderContent">
+        <view class="orderImg">
+          <image src="../../img/shop.jpg"></image>
+        </view>
+        <view class="orderMiddle">
+          <view class="re-name">米石科技</view>
+          <view class="total">
+            <view class="orderLeft">1人共点了3份</view>
+            <view class="orderRight">共计<span>￥75元</span></view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 服务纪录 -->
+<view class="{{serverInfo?'show':'hidden'}}">
+  暂时没有服务记录
+</view>

@@ -1,0 +1,147 @@
+
+.header{
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.re{
+  position: absolute;
+  left: 18px;
+}
+.user_info{
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+.info-box{
+  width: 158rpx;
+  height: 158rpx;
+  border-radius: 79rpx;
+  overflow: hidden;
+}
+.info-box image{
+  width: 100%;
+  height: 100%;
+}
+.infoShow{
+  flex: 1;
+  padding-top: 30rpx;
+   margin-left: 8%;
+}
+.infoShow .phonenum{
+    color: #ccc;
+}
+.changeInfo{
+  width: 17px;
+  height: 100%;
+  background: url(../../img/right.png) no-repeat center;
+}
+.username{
+  margin-bottom: 20rpx;
+}
+.username .sex{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 30rpx;
+}
+.username .man{
+  background: url(../../img/man.png) no-repeat;
+}
+.username .female{
+  background: url(../../img/female.png) no-repeat;
+}
+.infoShow .phonenum{
+  color: #ccc;
+}
+.changeInfo{
+  height: 100%;
+  width: 17px;
+  background: url(../../img/right.png) no-repeat center;
+}
+.nav{width:100%;height:40px;display:flex;flex-direction:row;border-bottom: 1px solid #ccc;background: #fff;}
+.default{line-height:40px;text-align:center;flex:1;font-size:14px;}
+.black{line-height:40px;text-align:center;flex:1;font-size:14px;}
+.show{display:block;}
+.hidden{display:none;text-align:center;line-height:200px;}
+.black text{
+   padding: 10px 4px; 
+   border-bottom: 1px solid black; 
+  
+}
+
+.line{
+  line-height: 40px;
+  color: #ccc;
+}
+.orderNums{
+  width: 100%;
+  background: #fff;
+  height: 280rpx;
+  margin-top: 30rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.orderHead{
+  display: flex;
+  flex-direction: row;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+}
+.orderHead view{
+  flex: 1;
+  font-size: 24rpx;
+}
+.orderTime{
+  color: #ccc;
+}
+.orderTold{
+  text-align: right;
+  color: orange;
+}
+.orderContent{
+  height: 220rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.orderContent .orderImg{
+  width: 180rpx;
+  height: 180rpx;
+}
+.orderContent .orderImg image{
+  width: 100%;
+  height: 100%;
+}
+.orderMiddle{
+  flex: 1;
+  margin-left: 4%;
+  font-size: 32rpx;
+}
+.re-name{
+  margin: 50rpx 0;
+}
+.total{
+  font-size: 28rpx;
+  color: #ccc;
+}
+.orderLeft{
+  float: left;
+}
+.orderRight{
+  float: right;
+}
+.orderRight span{
+  color: #000;
+}

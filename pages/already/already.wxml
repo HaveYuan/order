@@ -1,0 +1,8 @@
+
+<view class="head">
+  <view class="re" bindtap="rePrev">返回</view>
+  <text>已点订单</text>
+</view>
+<view class="btn-box">
+  <button class="order-btn" bindtap="rePrev">立即点餐</button>
+</view>

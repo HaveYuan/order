@@ -1,0 +1,121 @@
+
+.header{
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.re{
+  position: absolute;
+  left: 18px;
+
+}
+.info-box{
+  width: 100%;
+  height: 240rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.con{
+  height: 80rpx;
+  width: 100%;
+  background: #fff;
+  line-height: 80rpx;
+  padding: 0 2%;
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+}
+.info-box .con:nth-child(1){
+  border: none;
+}
+.headBG{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx 0;
+  border-radius: 30rpx;
+  overflow: hidden;
+  float: right;
+  margin-right: 5%;
+}
+.headBG image{
+  width: 100%;
+  height: 100%;
+  margin-right: 8%;
+}
+.rightbox,.sexbox{
+  text-align: right;
+  flex: 1;
+}
+.rightbox .r{
+  padding-right: 4%;
+}
+.i{
+  flex: 1;
+}
+.phonebox{
+  margin-top: 20rpx;
+  border: none;
+  font-size: 28rpx;
+}
+radio-group{
+  margin-right: 5%;
+}
+radio{
+  transform: scale(.6);
+}
+.box-wrap{
+  width: 100%;
+  height: 250rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+.box-wrap .bw-box{
+  width: 60%;
+  height: 250rpx;
+  background: #fff;
+  padding: 20rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+.bw-box text{
+  color: #ccc;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.bw-box input{
+  border: 1px solid #ccc;
+  padding: 0 16rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+.btn-wrap{
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+}
+.btn-wrap button{
+  height: 60rpx; 
+  line-height: 60rpx;
+  width: 40%;
+  font-size: 28rpx;
+  color: #fff;
+  border: none;
+}
+.canl{
+  background: #ccc;
+}
+.sub{
+  background: #4cc9e5;
+}
+.btn-wrap .btnmin{
+  transform: scale(.9);
+}

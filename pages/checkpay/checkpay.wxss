@@ -1,0 +1,220 @@
+
+.header{
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.re{
+  position: absolute;
+  left: 18px;
+}
+.table{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  color: #6c6c6c;
+}
+.table span{
+  flex: 1;
+  font-size: 32rpx;
+}
+.table .tableNum{
+  text-align: right;
+}
+.order-box{
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  color: #6c6c6c;
+}
+.order-top{
+  border-bottom: 1px solid #ccc;
+}
+.order-top,order-middle,.order-bottom,.tip-top{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 32rpx;
+}
+.order-middle{
+  flex-direction: colum;
+}
+.foodItem{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+}
+.foodItem .foodName{
+  font-size: 40rpx;
+  color: #000;
+}
+.foodItem .foodNum,.foodItem .foodTolPrice{
+  font-size: 28rpx;
+  color: #000;
+  text-align: right;
+}
+.order-top view,.order-middle .foodName,.order-bottom view{
+  flex: 1;
+}
+.order-middle .foodTolPrice{
+  width: 80px;
+}
+.order-top .del,.order-bottom .count{
+  text-align: right;
+}
+.order-bottom{
+  padding: 10rpx 0;
+  border-top: 1px solid #ccc;
+}
+.order-bottom .money{
+  color: orange;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+ .order-tip{
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #6c6c6c;
+}
+.tip-top{
+  border-bottom: 1px solid #ccc;
+}
+.tip-middle{
+  height: 160rpx;
+  font-size: 28rpx;
+  color: #ccc;
+}
+.hot{
+  display: flex;
+  flex-direction: row;
+  margin-right: 20rpx;
+}
+.tip-item{
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;   
+}
+.hot .tip-item{
+  border: 1px solid #ccc; 
+  border-radius: 0rpx;
+}
+.hot .tip-item label{
+  border: none;
+}
+.tip-item label{
+  padding: 0 25rpx;
+  display: block;
+  border: 1px solid #ccc;   
+}
+.tm{
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.hot view:nth-child(2),.hot view:nth-child(3){
+   margin-left: -2rpx; 
+}
+.hot view:nth-child(1){
+  border-radius: 8rpx 0 0 8rpx;
+}
+.hot view:nth-child(3){
+  border-radius: 0rpx 8rpx 8rpx 0;
+}
+.tip-item.active{
+  color: #4cc9e5;
+  border: 1px solid #4cc9e5;
+}
+.tip-item.active + .tip-item{
+  border-left: 1px solid #4cc9e5;
+}
+.tip-item .active1,.tip-item .active2,.tip-item .active3,.tip-item .active4,.tip-item .active5{
+  color: #4cc9e5;
+  border: 1px solid #4cc9e5;
+}
+.checkbox{
+  display: flex;
+  flex-direction: row;
+}
+.checkbox view{
+  margin-right: 20rpx;
+}
+.checkbox label{
+  border-radius: 8rpx;
+}
+.tip-bottom{
+  width: 100%;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tip-bottom input{
+  flex: 1;
+  border: 1px solid #f0f0f0;
+  background: #f0f0f0;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+}
+.pay-wrap{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #6c6c6c;
+  box-sizing: border-box;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+.payleft{
+  flex: 1;
+  padding-top: 10rpx;
+}
+.pl-top text{
+  color: orange;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.payleft .pl-bottom{
+  color: #ccc;
+  font-size: 24rpx;
+  margin-top: 4rpx; 
+}
+.payright{
+  padding-top: 20rpx;
+  display: flex;
+}
+.payright button{
+  background: #4cc9e5;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  margin-left: 8rpx;
+}
