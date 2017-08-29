@@ -69,23 +69,30 @@ Page({
 
   //微信支付
   webchatPay: function() {
-    // wx.requestPayment({
-    //   timeStamp: '',
-    //   nonceStr: '',
-    //   package: '',
-    //   signType: 'MD5',
-    //   paySign: '',
-    //   success: function() {
-
-    //   },
-    //   fail: function() {
+    wx.request({
+      url: 'http://xcx.misass.com/misassorder/ajax/ajaxpay.php',
+      dataType: "json",
+      data: {
         
-    //   }
-    // })
-    var resultType = 'success';
-    wx.navigateTo({
-      url: 'pay/pay?resultType=' + resultType
+      },
+      success: function(res) {
+        console.log(res);
+        wx.requestPayment({
+          'timeStamp': res.data.time.toString(),
+          'nonceStr': res.data.nonce_str,
+          'package': res.data.prepay_id,
+          'signType': 'MD5',
+          'paySign': res.data.sign,
+          success: function() {
+
+          }
+        })
+      }
     })
+    // var resultType = 'success';
+    // wx.navigateTo({
+    //   url: 'pay/pay?resultType=' + resultType
+    // })
   },
 
   onLoad: function(options) {
@@ -112,6 +119,13 @@ Page({
         })
       },
     })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 
 })

@@ -1,6 +1,6 @@
 
 <view class="header">
-  <view class="re" bindtap="rePrev" bindtap="returngoods">返回</view>
+  <view class="re" bindtap="rePrev" bindtap="returngoods"></view>
   <text>订单确认</text>
 </view>
 

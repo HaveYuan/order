@@ -1130,21 +1130,6 @@ Page({
         q: '',                    //二维码链接
         num: 0,                    //餐桌号
     },
-    // selectFoods: function (event) {
-    //     var food = event.currentTarget.dataset.food;
-    //     console.log(food);
-    //     console.log(this.data.goods)
-    //     let foods = [];
-    //     this.data.goods.forEach((good) => {
-    //         good.foods.forEach((food) => {
-    //             // console.log(food)
-    //             if (food.sellCount) {
-    //                 foods.push(food);
-    //                 console.log(foods);
-    //             }
-    //         })
-    //     })
-    // },
 
     //跳转到个人中心页
     aboutMe: function() {
@@ -1167,6 +1152,7 @@ Page({
         detail: false
       })
     },
+
     //餐厅详情页面显示
     detail: function (e) {
       this.setData({
@@ -1194,71 +1180,34 @@ Page({
       var price = this.data.goods[parentIndex].foods[index].price;
       var obj = { price: price, num: num, mark: mark, name: name, index: index, parentIndex: parentIndex };
       var carArray1 = this.data.carArray.filter(item => item.mark != mark);
+
       carArray1.push(obj);
-      console.log(carArray1);
+
+      //当商品为0时将其从对象中删除
+      for (var k = 0; k < carArray1.length; k++) {
+        if (carArray1[k].num == 0) {
+          delete (carArray1[k]);
+        }
+      }
+
+    console.log(carArray1);
+
       this.setData({
         carArray: carArray1,
         goods: this.data.goods
       })
-      this.calTotalPrice()
+
+      this.calTotalPrice();
+
       this.setData({
         payDesc: this.payDesc()
       })
-          // if (num > 0) {
-          //   var carArray1 = this.data.carArray.filter(item => item.num > 0)
-          //   console.log(carArray1)
-          //   this.setData({
-          //     carArray: carArray1,
-          //   })
-          // }
     },
+
     decreaseShopCart: function (e) {
       this.decreaseCart(e);
     },
 
-    //移除商品
-    // decreaseCart: function (e) {
-    //     var index = e.currentTarget.dataset.itemIndex;
-    //     var parentIndex = e.currentTarget.dataset.parentindex;
-    //     this.data.goods.forEach((good) => {
-    //         good.foods.forEach((food) => {
-    //             var num = this.data.goods[parentIndex].foods[index].Count;
-    //             var mark = 'a' + index + 'b' + parentIndex
-    //             if (food.Count > 0) {
-    //                 //num--;   //减去数量
-    //                 //console.log(food);
-    //                 this.data.goods[parentIndex].foods[index].Count--;
-    //                 //var num = this.data.goods[parentIndex].foods[index].Count;
-    //                // console.log(food.Count);
-    //                 //console.log(food);
-    //                 //console.log(num);
-    //                 var price = this.data.goods[parentIndex].foods[index].price;
-    //                 var obj = { price: price, num: num, mark: mark, name: name, index: index, parentIndex: parentIndex };
-    //                 var carArray1 = this.data.carArray.filter(item => item.mark != mark);
-    //                 carArray1.push(obj);
-    //                 //console.log(carArray1);
-    //                 this.setData({
-    //                     carArray: carArray1,
-    //                     goods: this.data.goods
-    //                 })
-    //                 this.calTotalPrice()
-    //                 this.setData({
-    //                     payDesc: this.payDesc()
-    //                 })
-    //             }
-    //             if (num > 0) {
-    //               var carArray1 = this.data.carArray.filter(item => item.num > 0)
-    //               console.log(carArray1)
-    //               this.setData({
-    //                   carArray: carArray1,
-    //               })
-    //             }
-    //         })
-    //     })
-    // },
-    // decreaseShopCart: function (e) {
-    //     this.decreaseCart(e);
-    // },
     //添加到购物车
     addCart(e) {
         var index = e.currentTarget.dataset.itemIndex;
@@ -1270,25 +1219,29 @@ Page({
         var name = this.data.goods[parentIndex].foods[index].name;
         var obj = { price: price, num: num, mark: mark, name: name, index: index, parentIndex: parentIndex };
         var carArray1 = this.data.carArray.filter(item => item.mark != mark)
+
         carArray1.push(obj)
+
         console.log(carArray1);
+
         this.setData({
             carArray: carArray1,
             goods: this.data.goods
         })
+
         this.calTotalPrice();
         this.setData({
             payDesc: this.payDesc()
         })
     },
+
     addShopCart: function (e) {
         this.addCart(e);
     },
 
     //清空购物车
     empty: function(e) {
-      // var carArray1 = this.data.carArry;
-      // console.log(carArray1);
+
       var that = this;
       wx.showModal({
         title: '确定要清空购物车吗',
@@ -1307,19 +1260,32 @@ Page({
                     that.data.goods[i].foods[j].Count--;
                     var num = that.data.goods[i].foods[j].Count;
                   }
-                  console.log(num);
+
+                    console.log(num);
                     var name = that.data.goods[i].foods[j].name;
                     var price = that.data.goods[i].foods[j].price;
                     var obj = { price: price, num: num, mark: mark, name: name, index: j, parentIndex: i };
                     var carArray1 = that.data.carArray.filter(item => item.mark != mark);
+
                     console.log(that.data.carArray);
                     carArray1.push(obj);
-                  // console.log(carArray1);
+
+                   //当商品为0时将其从对象中删除，清空对象
+                    for(var k=0; k<carArray1.length; k++) {
+                      if(carArray1[k].num == 0) {
+                        delete(carArray1[k]);
+                      }
+                    }
+
+                    console.log(carArray1);
+                    
                     that.setData({
                       carArray: carArray1,
                       goods: that.data.goods
                     })
+
                     that.calTotalPrice();
+
                     that.setData({
                       payDesc: that.payDesc()
                     })
@@ -1360,16 +1326,9 @@ Page({
             //payDesc: this.payDesc()
         });
     },
+
     //差几元起送
     payDesc() {
-        // if (this.data.totalPrice === 0) {
-        //     return `￥${this.data.minPrice}元起送`;
-        // } else if (this.data.totalPrice < this.data.minPrice) {
-        //     let diff = this.data.minPrice - this.data.totalPrice;
-        //     return '还差' + diff + '元起送';
-        // } else {
-        //     return '去结算';
-        // }
         if (this.data.totalPrice == 0) {
           this.setData({
             enough: 'noenough'
@@ -1381,17 +1340,12 @@ Page({
           })
         }
     },
+
     //結算
     checkpay() {
         if (this.data.totalPrice <= 0) {
             return;
         }
-        // window.alert('支付' + this.totalPrice + '元');
-        //确认支付逻辑
-        //var resultType = "success";
-        // wx.redirectTo({
-        //     url: '../goods/pay/pay?resultType=' + resultType
-        // })
         var carArray = JSON.stringify(this.data.carArray);   //先将对象转化为字符串后再传值
         var totalPrice = this.data.totalPrice;
         var totalCount = this.data.totalCount;
@@ -1399,7 +1353,8 @@ Page({
           url: '../checkpay/checkpay?carArray=' + carArray + '&&totalPrice=' + totalPrice +'&&totalCount=' + totalCount
         })
     },
-    //彈起購物車
+
+    //弹起购物车
     toggleList: function () {
         if (!this.data.totalCount) {
             return;
@@ -1411,6 +1366,7 @@ Page({
         //console.log(this.data.fold);
         this.cartShow(fold)
     },
+
     cartShow: function (fold) {
         console.log(fold);
         if (fold == false) {
@@ -1424,23 +1380,13 @@ Page({
         }
         console.log(this.data.cartShow);
     },
+
     listShow() {
         if (!this.data.totalCount) {
             this.data.fold = true;
             return false;
         }
         let show = !this.fold;
-        // if (show) {
-        //     this.$nextTick(() => {
-        //         if (!this.scroll) {
-        //             this.scroll = new BScroll(this.$refs.listContent, {
-        //                 click: true
-        //             });
-        //         } else {
-        //             this.scroll.refresh();
-        //         }
-        //     });
-        // }
         return show;
     },
 
@@ -1481,5 +1427,17 @@ Page({
     },
     onUnload: function () {
         // 页面关闭
+    },
+
+    /**
+   * 用户点击右上角分享
+   */
+    onShareAppMessage: function () {
+      return {
+        title: '米石科技点餐系统',
+        desc: '米石科技点餐系统!',
+        //imageUrl: ''
+        path: '/pages/goods/goods'
+      }
     }
 })

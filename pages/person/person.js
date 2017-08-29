@@ -13,7 +13,8 @@ Page({
     avatarUrl: '',           // 用户头像
     userinfo: [],
     res: [],
-    code: ''
+    code: '',
+    phoneNum: '',
   },
 
   //我的订单页面显示
@@ -44,36 +45,42 @@ Page({
     var nickname = this.data.nickname;
     var gender = this.data.gender;
     var avatarUrl = this.data.avatarUrl;
+    var phoneNum = this.data.phoneNum;
+
     wx.navigateTo({
-      url: 'changeInfo/changeInfo?nickname='+nickname+'&&gender='+gender+'&&avatarUrl='+avatarUrl
+      url: 'changeInfo/changeInfo?nickname='+nickname+'&&gender='+gender+'&&avatarUrl='+avatarUrl+'&&phoneNum='+phoneNum
     })
   },
 
   //页面开始加载
   onLoad: function(option) {
-    //调用全局变量的用户信息
-    var that = this;
-    wx.login({
-      success: function(res) {
-        console.log(res);
-      }
-    })
-    getApp().getUserInfo(
-      function(res) { 
-        that.setData({
-          nickname: res.userInfo.nickName,
-          gender: res.userInfo.gender,
-          avatarUrl: res.userInfo.avatarUrl,
-          res: res,
-          code: res.code
-        })
-        //console.log(res.code);
-      })
+    
   },
 
   onShow: function () {
-    console.log("kkk");
+    //调用全局变量的用户信息
     var that = this;
+
+    //调用全局变量openid
+    var openid = getApp().globalData.openid;
+
+    //调取数据库用户数据
+    wx.request({
+      url: 'http://localhost/PHP/getUserInfo.php',
+      data: {
+        openid: openid
+      },
+      dataType: "json",
+      success: function (res) {
+        that.setData({
+          nickname: res.data.nickName,
+          gender: res.data.gender,
+          avatarUrl: res.data.avatarUrl,
+          phoneNum: res.data.phoneNum
+        })
+      }
+    }) 
+
     // 页面显示
     wx.getSystemInfo({
       success: function (res) {
@@ -85,5 +92,12 @@ Page({
         console.log(height);
       }
     })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

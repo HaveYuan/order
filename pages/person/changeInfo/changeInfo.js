@@ -14,7 +14,8 @@ Page({
     avatarUrl: '',           // 用户头像
     nameValue: '',           // 获取昵称文本框的值
     phoneValue: '',          // 获取手机号文本框的值
-    phoneNum: ''              // 手机号
+    phoneNum: '',              // 手机号
+    openid: ''
   },
 
   //返回个人信息页
@@ -64,11 +65,14 @@ Page({
   //点击取消后文本框消失
   phoneCanl: function() {
     this.setData({
-      phoneBox: 'hidden'
+      phoneBox: 'hidden',
+      nameValue: ''
     })
   },
-  //点击确定后文本框消失
+
+  //点击确定后修改手机号码文本框消失
   phoneSub: function() {
+    var that = this;
     var phoneNum1 = this.trim(this.data.phoneValue);
     var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;    //手机号码正则表达式
     if(!re.test(phoneNum1)) {
@@ -78,13 +82,25 @@ Page({
         confirmColor: '#4cc9e5',
       })
     }else {
-      this.setData({
-        phoneBox: 'hidden',
-        phoneNum: phoneNum1,
-        phoneValue: ''
-      })
+      //将修改后的值传到后台
+      wx.request({
+        url: 'http://localhost/PHP/changeInfo.php',
+        data: {
+          openid: this.data.openid,
+          phone: phoneNum1
+        },
+        success: function(res) {
+          console.log(res);
+          that.setData({
+            phoneBox: 'hidden',
+            phoneNum: phoneNum1,
+            phoneValue: ''
+          })
+        }
+      }) 
     }
   },
+
   //获取修改手机号的文本框的值
   changePhone: function (e) {
     this.setData({
@@ -96,11 +112,14 @@ Page({
   //点击取消后文本框消失
   nickCanl: function () {
     this.setData({
-      nickBox: 'hidden'
+      nickBox: 'hidden',
+      nameValue: ''
     })
   },
+
   //点击确定后文本框消失
   nickSub: function () {
+    var that = this;
     var nickname1 = this.trim(this.data.nameValue);
     if(nickname1 == '') {
       wx.showModal({
@@ -108,18 +127,50 @@ Page({
         confirmColor: '#4cc9e5',
         showCancel: false
       })
+    }else if(nickname1.length > 8) {
+      wx.showModal({
+        title: '昵称太长',
+        confirmColor: '#4cc9e5',
+        showCancel: false
+      })
     }else{
-      this.setData({
-        nickBox: 'hidden',
-        nickname: nickname1,
-        nameValue: ''
+      wx.request({
+        url: 'http://localhost/PHP/changeInfo.php',
+        data: {
+          openid: this.data.openid,
+          nick: nickname1
+        },
+        success: function(res) {
+          console.log(res);
+          that.setData({
+            nickBox: 'hidden',
+            nickname: nickname1,
+            nameValue: ''
+          })
+        }
       })
     }
   },
+
   //获取修改昵称的文本框的值
   changeNickname: function(e) {
     this.setData({
       nameValue: e.detail.value
+    })
+  },
+
+  //修改性别
+  changeSex: function(e) {
+    var sex = e.detail.value;
+    wx.request({
+      url: 'http://localhost/PHP/changeInfo.php',
+      data: {
+        openid: this.data.openid,
+        sex: sex
+      },
+      success: function(res) {
+        console.log(res);
+      }
     })
   },
 
@@ -138,11 +189,24 @@ Page({
   
   //页面开始加载
   onLoad: function (options) {
+    console.log(options);
+    //获取openid
+    var oid = getApp().globalData.openid;
+
     //获取个人中心页面的用户信息
     this.setData({
       nickname: options.nickname,
       gender: options.gender,
-      avatarUrl: options.avatarUrl
+      avatarUrl: options.avatarUrl,
+      phoneNum: options.phoneNum,
+      openid: oid
     })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

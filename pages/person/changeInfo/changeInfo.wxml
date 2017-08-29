@@ -1,6 +1,6 @@
 
 <view class="header">
-  <view class="re" bindtap="rePrev" bindtap="returnPerson">返回</view>
+  <view class="re" bindtap="rePrev" bindtap="returnPerson"></view>
   <text>修改资料</text>
 </view>
 
@@ -21,13 +21,13 @@
   <view class="con">
     <text>性别</text>
     <view class="sexbox">
-      <radio-group wx:if="{{gender == 0 || gender == 1}}">
-        <radio checked/>男
-        <radio/>女
+      <radio-group wx:if="{{gender == 0 || gender == 1}}" bindchange="changeSex">
+        <radio  value="1" checked/>男
+        <radio  value="2"/>女
       </radio-group>
-      <radio-group wx:if="{{gender == 2}}">
-        <radio/>男
-        <radio checked/>女
+      <radio-group wx:if="{{gender == 2}}" bindchange="changeSex">
+        <radio  value="1"/>男
+        <radio  value="2" checked/>女
       </radio-group>
     </view>
   </view>
@@ -36,8 +36,8 @@
 <view class="con phonebox">
   <text>手机号</text>
   <view class="rightbox" bindtap="showPhoneBox">
-    <text wx:if="{{phoneNum == ''}}" class="r">暂无手机号</text>
-    <text wx:else="{{phoneNum != ''}}" class="r">{{phoneNum}}</text>
+    <text wx:if="{{phoneNum == 'null'}}" class="r">暂无手机号</text>
+    <text wx:if="{{phoneNum != 'null'}}" class="r">{{phoneNum}}</text>
     <text>></text>
   </view>
 </view>
@@ -45,7 +45,7 @@
 <!-- 修改昵称 -->
 <view class="box-wrap" style="visibility:{{nickBox}}">
   <view class="bw-box">
-    <input type="text" value="{{nameValue}}" placeholder="请输入昵称" bindinput="changeNickname"/>
+    <input type="text" value="{{nameValue}}" placeholder="请输入昵称，小于8位" bindinput="changeNickname"/>
     <text>4-30个字符，支持中英文和数字</text>
     <view class="btn-wrap">
       <button class="canl {{canlmin?'':'btnmin'}}" bindtouchstart="canltouchstart" bindtouchend="canltouchend" bindtap="nickCanl">取消</button>

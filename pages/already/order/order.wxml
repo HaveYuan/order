@@ -1,0 +1,62 @@
+<!--order.wxml-->
+<view class="head">
+  <view class="re" bindtap="rePrev"></view>
+  <text>订单详情</text>
+</view>
+<scroll-view scroll-y="true" style="height:{{scrollHeight}}px">
+  <!-- 订单内容  -->
+  <view class="order-info">
+    <view class="order-content">
+      <view class="foodItem">
+        <view class="foodName">糖醋排骨</view>
+        <view class="foodNum">x1</view>
+        <view class="foodTolPrice">￥20.00</view>
+      </view>
+      <view class="foodItem">
+        <view class="foodName">糖醋排骨</view>
+        <view class="foodNum">x1</view>
+        <view class="foodTolPrice">￥20.00</view>
+      </view>
+      <view class="foodItem">
+        <view class="foodName">糖醋排骨</view>
+        <view class="foodNum">x1</view>
+        <view class="foodTolPrice">￥20.00</view>
+      </view>
+      <view class="ordr-total">
+        <view class="count">
+          <span>合计</span><span class="money">￥20.00</span>
+        </view>
+      </view>
+    </view>
+
+    <!-- 订单备注  -->
+    <view class="order-time">
+      <view class="order-tips">
+        <view class="tips">
+          <span>订单备注：</span>
+        </view>
+        <view class="tips-content">
+          <text>不要香菜，不要葱不要香菜，不要葱不要香菜，不要葱不要香菜，不要葱不要香菜，不要葱不要香菜，不要葱不要香菜，不要葱不要香菜，不要葱</text>
+        </view>
+      </view>
+      <view>
+        <span>订单时间：</span>
+        <text>01/08/2017 18:00:00</text>
+      </view>
+      <view>
+        <span>支付方式：</span>
+        <text>微信支付</text>
+      </view>
+    </view>
+
+    <!-- 订单评价  -->
+    <view class="order-talk">
+      <view class="talk">
+        <text>订单评价：</text>
+      </view>
+      <view class="talk-content">
+        <text>好吃好吃好吃哈哈哈哈哈哈哈哈哈哈哈哈好吃好吃好吃哈哈哈哈哈哈哈哈哈哈哈哈好吃好吃好吃哈哈哈哈哈哈哈哈哈哈哈哈好吃好吃好吃哈哈哈哈哈哈哈哈哈哈哈哈!</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

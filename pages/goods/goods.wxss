@@ -105,10 +105,10 @@
 
 .goods .foods-wrapper .food-list .food-item {
   display: flex;
-  margin: 18px;
-  padding-bottom: 18px;
+  margin: 20rpx;
+  padding-bottom: 20rpx; 
   position: relative;
-  border-bottom:1px solid rgba(7,17,27,0.1);
+  border-bottom: 1px solid rgba(7,17,27,0.1);
 }
 
 .goods .foods-wrapper .food-list .food-item:last-child {
@@ -155,7 +155,7 @@
 
 .goods .foods-wrapper .food-list .food-item .content .price .now {
   margin-right: 8px;
-  font-size: 14px;
+  font-size: 28rpx;
   color: rgb(240, 20, 20);
   float: left;
 }
@@ -170,7 +170,7 @@
 .goods .foods-wrapper .food-list .food-item .content .cartControl-wrapper {
   position: absolute;
   right: 0;
-  bottom: 12px;
+  bottom: 20rpx;
 }
 
 /* cartControl 样式 */
@@ -182,7 +182,7 @@
 .goods .foods-wrapper .food-list .food-item .content .cartControl-wrapper .cartControl .cart-decrease,
 .cart-add {
   display: inline-block;
-  padding: 4px 6px 6px 6px;
+  /* padding-top: 2rpx; */
 }
 
 .goods .foods-wrapper .food-list .food-item .content .cartControl-wrapper .cartControl .cart-decrease,
@@ -217,18 +217,17 @@
 
 .goods .foods-wrapper .food-list .food-item .content .cartControl-wrapper .cartControl .cart-count {
   display: inline-block;
-  font-size: 10px;
+  font-size: 28rpx;
   line-height: 24px;
-  width: 12px;
   vertical-align: top;
-  padding-top: 6px;
+  padding: 0 4rpx;
   text-align: center;
   color: rgb(147, 153, 159);
 }
 
 .goods .foods-wrapper .food-list .food-item .content .cartControl-wrapper .cartControl .cart-add {
   display: inline-block;
-  padding: 6px;
+  padding-top: 4rpx;
   line-height: 24px;
   font-size: 24px;
   vertical-align: top;

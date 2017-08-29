@@ -1,0 +1,88 @@
+/* order.wxss */
+.head{
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.re{
+  position: absolute;
+  width: 12%;
+  height: 100%;
+  background: url(../../../img/return.png) no-repeat center center;
+}
+.order-info{
+  height: auto;
+  width: 100%;
+}
+.order-content{
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  font-size: .8em;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.foodItem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.foodItem .foodName{
+  font-size: 32rpx;
+  flex: 1;
+}
+.foodItem .foodNum,.foodItem .foodTolPrice{
+  font-size: 28rpx;
+  color: #000;
+  text-align: right;
+  width: 160rpx;
+}
+.ordr-total{
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60rpx;
+  border-top: 2rpx solid #ccc;
+}
+.money{
+  color: orange;
+}
+.order-time{
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 20rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+.order-time>view{
+  margin: 8rpx 0;
+  font-size: 28rpx;
+}
+.order-tips{
+  display: flex;
+}
+.order-tips .tips,order-talk .talk{
+  flex: 1;
+  width: 20%;
+}
+.order-tips .tips-content,.order-talk .talk-content{
+  width: 80%;
+}
+.order-talk{
+  width: 100%;
+  overflow: hidden;
+  padding: 20rpx 16rpx;
+  background: #fff;
+  display: flex;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}

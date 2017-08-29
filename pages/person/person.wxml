@@ -1,6 +1,6 @@
 
 <view class="header">
-  <view class="re" bindtap="rePrev">返回</view>
+  <view class="re" bindtap="rePrev"></view>
   <text>我的主页</text>
 </view>
 <!-- 个人信息 -->
@@ -14,7 +14,8 @@
       <span wx:if="{{gender == 1 || gender == 0}}" class="sex man"></span>
       <span wx:if="{{gender == 2}}" class="sex female"></span>
     </view>
-    <text class="phonenum">暂无手机号</text>
+    <text class="phonenum" wx:if="{{phoneNum != null}}">{{phoneNum}}</text>
+    <text class="phonenum" wx:if="{{phoneNum == null}}">暂无手机号</text>
   </view>
   <view class="changeInfo" bindtap="change_info"></view>
 </view>

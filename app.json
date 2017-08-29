@@ -1,12 +1,13 @@
 {
-  "pages":[
+  "pages": [
     "pages/goods/goods",
     "pages/already/already",
     "pages/person/person",
     "pages/person/changeInfo/changeInfo",
     "pages/checkpay/checkpay",
     "pages/checkpay/pay/pay",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/already/order/order"
   ],
   "window": {
     "backgroundColor": "#f2f2f2",

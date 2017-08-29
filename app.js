@@ -5,50 +5,42 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+  
+    var that = this;
+
     //调用登录接口获取openid
-    // wx.login({
-    //   success: function(res) {
-    //     var encryptedData = res.encryptedData;
-    //     var iv = res.iv;
-    //     if(res.code) {
-    //       wx.request({
-    //         url: '',
-    //         data: {
-    //           code: res.code,
-    //           encryptedData: encryptedData,
-    //           iv: iv
-    //         },
-    //         success: function(data) {
-    //           console.log(data);
-    //           wx.setStorageSync("uid", uid);
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
-  },
-  getUserInfo:function(cb){
-    var that = this
-    if(this.globalData.res){
-      typeof cb == "function" && cb(this.globalData.res)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              //that.globalData.userInfo = res.userInfo;
-              that.globalData.res = res;
-              //typeof cb == "function" && cb(that.globalData.userInfo);
-              typeof cb == "function" && cb(that.globalData.res);
+    wx.login({
+      success: function(res) {
+        if(res.code) {
+          wx.request({
+            url: 'http://localhost/PHP/getCode.php',
+            data: {
+              code: res.code,
+            },
+            success: function(data) {
+              that.globalData.openid = data.data.openid;
+              wx.getUserInfo({
+                success: function(u) {
+                  wx.request({
+                    url: 'http://localhost/PHP/getOpenid.php',
+                    data: {
+                      sessionKey: data.data.session_key,
+                      encryptedData: u.encryptedData,
+                      iv: u.iv
+                    },
+                    success: function(o) {
+                      console.log(o);
+                    }
+                  })
+                }
+              })
             }
           })
         }
-      })
-    }
+      }
+    })
   },
   globalData:{
-    //userInfo:null,
-    res: null
+    openid: ''
   }
 })

@@ -1,8 +1,108 @@
 
 <view class="head">
-  <view class="re" bindtap="rePrev">返回</view>
+  <view class="re" bindtap="rePrev"></view>
   <text>已点订单</text>
 </view>
-<view class="btn-box">
+<scroll-view class="order-wrap" scroll-y="true" style="height: {{scrollHeight}}px">
+ 
+  <!-- 订单详情star  -->
+  <view class="order-item">
+    <view class="item-top">
+      <span>13/08/2017 10:00:00</span>
+      <span class="remark noRemark">评价</span>
+    </view>
+    <view class="item-middle">
+      <text>共5份菜品</text>
+      <span class="check-order" bindtap="checkOrder">[查看订单详情]</span>
+    </view>
+    <view class="item-bottom">
+      <span class="count">￥10.00</span>
+    </view>
+  </view>
+  <!-- 订单详情end  -->
+
+  <!-- 订单详情star  -->
+  <view class="order-item">
+    <view class="item-top">
+      <span>13/08/2017 10:00:00</span>
+      <span class="remark noRemark">评价</span>
+    </view>
+    <view class="item-middle">
+      <text>共5份菜品</text>
+      <span class="check-order" bindtap="checkOrder">[查看订单详情]</span>
+    </view>
+    <view class="item-bottom">
+      <span class="count">￥10.00</span>
+    </view>
+  </view>
+  <!-- 订单详情end  -->
+
+  <!-- 订单详情star  -->
+  <view class="order-item">
+    <view class="item-top">
+      <span>13/08/2017 10:00:00</span>
+      <span class="remark finishRemark">己评价</span>
+    </view>
+    <view class="item-middle">
+      <text>共5份菜品</text>
+      <span class="check-order" bindtap="checkOrder">[查看订单详情]</span>
+    </view>
+    <view class="item-bottom">
+      <span class="count">￥10.00</span>
+    </view>
+  </view>
+  <!-- 订单详情end  -->
+
+   <!-- 订单详情star  -->
+  <view class="order-item">
+    <view class="item-top">
+      <span>13/08/2017 10:00:00</span>
+      <span class="remark noRemark">评价</span>
+    </view>
+    <view class="item-middle">
+      <text>共5份菜品</text>
+      <span class="check-order" bindtap="checkOrder">[查看订单详情]</span>
+    </view>
+    <view class="item-bottom">
+      <span class="count">￥10.00</span>
+    </view>
+  </view>
+  <!-- 订单详情end  -->
+
+  <!-- 订单详情star  -->
+  <view class="order-item">
+    <view class="item-top">
+      <span>13/08/2017 10:00:00</span>
+      <span class="remark noRemark">评价</span>
+    </view>
+    <view class="item-middle">
+      <text>共5份菜品</text>
+      <span class="check-order" bindtap="checkOrder">[查看订单详情]</span>
+    </view>
+    <view class="item-bottom">
+      <span class="count">￥10.00</span>
+    </view>
+  </view>
+  <!-- 订单详情end  -->
+
+  <!-- 订单详情star  -->
+  <view class="order-item">
+    <view class="item-top">
+      <span>13/08/2017 10:00:00</span>
+      <span class="remark noRemark">评价</span>
+    </view>
+    <view class="item-middle">
+      <text>共5份菜品</text>
+      <span class="check-order" bindtap="checkOrder">[查看订单详情]</span>
+    </view>
+    <view class="item-bottom">
+      <span class="count">￥10.00</span>
+    </view>
+  </view>
+  <!-- 订单详情end  -->
+
+</scroll-view>
+
+<!-- <view class="btn-box">
   <button class="order-btn" bindtap="rePrev">立即点餐</button>
-</view>
+</view> -->

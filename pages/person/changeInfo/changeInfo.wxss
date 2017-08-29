@@ -10,8 +10,9 @@
 }
 .re{
   position: absolute;
-  left: 18px;
-
+  width: 12%;
+  height: 100%;
+  background: url(../../../img/return.png) no-repeat center center;
 }
 .info-box{
   width: 100%;

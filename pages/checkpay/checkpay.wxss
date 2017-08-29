@@ -10,7 +10,9 @@
 }
 .re{
   position: absolute;
-  left: 18px;
+  width: 12%;
+  height: 100%;
+  background: url(../../../img/return.png) no-repeat center center;
 }
 .table{
   width: 100%;
@@ -181,6 +183,7 @@
 }
 .pay-wrap{
   display: flex;
+  align-items: center;
   flex-direction: row;
   height: 50px;
   width: 100%;
@@ -204,10 +207,8 @@
 .payleft .pl-bottom{
   color: #ccc;
   font-size: 24rpx;
-  margin-top: 4rpx; 
 }
 .payright{
-  padding-top: 20rpx;
   display: flex;
 }
 .payright button{
