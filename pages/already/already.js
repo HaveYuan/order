@@ -3,18 +3,11 @@ Page({
   data:{
     scrollHenght: 0,       //滚动区域高度
   },
-  
-  //返回菜单页
-  rePrev: function() {
-    wx.navigateBack({
-      url: "../goods/goods"
-    });
-  },
 
   //查看订单详情
   checkOrder: function() {
     wx.navigateTo({
-      url: 'order/order',
+      url: '../order/order',
     })
   },
 

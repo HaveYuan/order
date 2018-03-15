@@ -1122,6 +1122,7 @@ Page({
         payDesc: '',
         light: 'lowlight',       // 总价格样式
         scrollHeight: '300',
+        // deliveryPrice: 4,     // 配送費
         fold: true,
         enough: 'noenough',        // 结算按钮样式
         selectFoods: [{ price: 20, count: 2 }],
@@ -1163,14 +1164,9 @@ Page({
     selectMenu: function (e) {
         var index = e.currentTarget.dataset.itemIndex;
         this.setData({
-            toView: 'order' + index.toString(),
+            toView: 'order' + index.toString()
         })
         console.log(this.data.toView);
-    },
-
-    //监听菜品滚动
-    scrollFun: function(e) {
-      console.log(e.detail);
     },
 
     //移除商品
@@ -1222,30 +1218,10 @@ Page({
         var num = this.data.goods[parentIndex].foods[index].Count;
         var name = this.data.goods[parentIndex].foods[index].name;
         var obj = { price: price, num: num, mark: mark, name: name, index: index, parentIndex: parentIndex };
-        //var carArray1 = this.data.carArray.filter(item => item.mark != mark)
-        var carArray1 = this.data.carArray;
-        var flag = 0;
+        var carArray1 = this.data.carArray.filter(item => item.mark != mark)
 
-        if(carArray1 == '') {
-          carArray1.push(obj)
-        }else {
-          for (var i = 0; i < carArray1.length; i++) {
-            if(mark != carArray1[i].mark) {
-              flag++;
-            }
-          }
+        carArray1.push(obj)
 
-          if(flag == carArray1.length) {
-            carArray1.push(obj)
-          }else {
-            for(var j = 0; j < carArray1.length; j++) {
-              if(mark == carArray1[j].mark) {
-                carArray1.splice(j,1,obj);
-              }
-            }
-          }
-        }
-        
         console.log(carArray1);
 
         this.setData({
@@ -1269,6 +1245,7 @@ Page({
       var that = this;
       wx.showModal({
         title: '确定要清空购物车吗',
+        // content: '确定要删除吗？',
         cancelColor: '#ccc',
         confirmColor: '#4cc9e5',
         success: function (sm) {
@@ -1425,8 +1402,8 @@ Page({
           q: decodeURIComponent(options.q),
           num: num
       });
-      //console.log("二维码的内容是："+typeof(this.data.q));
-      //console.log("餐桌号是："+this.data.num);
+      console.log("二维码的内容是："+typeof(this.data.q));
+      console.log("餐桌号是："+this.data.num);
 
     },
     onReady: function () {

@@ -13,7 +13,7 @@ App({
       success: function(res) {
         if(res.code) {
           wx.request({
-            url: 'http://localhost/PHP/getCode.php',
+            url: 'https://www.070703.club/webchat_order/getCode.php',
             data: {
               code: res.code,
             },
@@ -22,7 +22,7 @@ App({
               wx.getUserInfo({
                 success: function(u) {
                   wx.request({
-                    url: 'http://localhost/PHP/getOpenid.php',
+                    url: 'https://www.070703.club/webchat_order/getOpenid.php',
                     data: {
                       sessionKey: data.data.session_key,
                       encryptedData: u.encryptedData,
@@ -32,6 +32,42 @@ App({
                       console.log(o);
                     }
                   })
+                },
+                fail: function() {
+                  /*wx.showModal({
+                    title: '提示',
+                    content: '您选择了拒绝授权，再次授权需要删除小程序后再进入，是否现在授权',
+                    confirmColor: '#4cc9e5',
+                    success: function(res) {
+                      if(res.confirm) {
+                        wx.openSetting({
+                          success: function(o) {
+                            if(o.authSetting["scope.userInfo"] == true) {
+                              console.log("用户确定授权");
+                            }else {
+                              console.log("用户取消授权");
+                            }
+
+                          }
+                        })
+                      }else {
+                        console.log(that.globalData.openid);
+                      }
+                    }
+                  })*/
+                  wx.request({
+                    url: 'https://www.070703.club/webchat_order/insertUser.php',
+                    data: {
+                      openid: that.globalData.openid,
+                      nickName: "餐厅用户",
+                      gender: 1,
+                      avatarUrl: "https://www.070703.club/webchat_order/img/head.png"
+                    },
+                    success: function(o) {
+                      console.log(o);
+                    }
+                  })
+                  console.log(that.globalData.openid);
                 }
               })
             }

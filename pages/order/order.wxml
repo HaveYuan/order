@@ -1,8 +1,5 @@
 <!--order.wxml-->
-<view class="head">
-  <view class="re" bindtap="rePrev"></view>
-  <text>订单详情</text>
-</view>
+<common-header title="订单详情"></common-header>
 <scroll-view scroll-y="true" style="height:{{scrollHeight}}px">
   <!-- 订单内容  -->
   <view class="order-info">

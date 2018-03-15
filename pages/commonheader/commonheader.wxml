@@ -1,0 +1,5 @@
+<!--pages/commonheader/commonheader.wxml-->
+<view class="header">
+  <image src="../../img/return.png" class="re" bindtap="rePrev"></image>
+  <text>{{title}}</text>
+</view>

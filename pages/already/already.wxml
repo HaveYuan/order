@@ -1,8 +1,5 @@
 
-<view class="head">
-  <view class="re" bindtap="rePrev"></view>
-  <text>已点订单</text>
-</view>
+<common-header title="已点订单"></common-header>
 <scroll-view class="order-wrap" scroll-y="true" style="height: {{scrollHeight}}px">
  
   <!-- 订单详情star  -->

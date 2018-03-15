@@ -1,0 +1,17 @@
+/* pages/commonheader/commonheader.wxss */
+.header{
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.re{
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 11px;
+  height: 20px;
+}

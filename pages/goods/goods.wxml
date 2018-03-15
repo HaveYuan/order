@@ -9,8 +9,8 @@
     <text bindtap="intoAlready">已点订单</text>
   </view>
 </view>
-<view class="classname">二维码链接是：{{q}}</view>
-<view class="classname">餐桌号是：{{num}}</view>
+<!-- <view class="classname">二维码链接是：{{q}}</view>
+<view class="classname">餐桌号是：{{num}}</view> -->
 <!-- tabs -->
 <view class="nav bc_white">
   <view class="{{order?'blue':'default'}}" bindtap="order">菜单列表</view>
@@ -55,7 +55,7 @@
                     <view class="inner iconfont icon-jian" style="font-size:24px;color:#4cc9e5;"></view>
                   </view>
                   <view class="cart-count" wx:if="{{food.Count > 0 }}">{{food.Count}}</view>
-                  <view class=" iconfont icon-jia cart-add " style="color:#4cc9e5; " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" catchtap="addCart"></view>
+                  <view class="iconfont icon-jia cart-add" style="color:#4cc9e5; " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" catchtap="addCart"></view>
                 </view>
               </view>
             </view>
@@ -96,7 +96,7 @@
               <view class="shopcart-food" wx:for="{{carArray}}" wx:if="{{item.num > 0}}">
                 <span class="name"  wx:if="{{item.num > 0}}">{{item.name}}</span>
                 <view class="price" >
-                  <span>￥{{item.price*item.num}}</span> 
+                  <span>￥{{item.num*(item.price*100)/100}}</span> 
                 </view>
 
                 <!--cartControl-->
@@ -130,26 +130,27 @@
       <image src="../../img/shop.jpg"></image>
     </view>
     <view class="restaurantName">
-      <text>米石科技餐厅</text>
+      <text>御碟餐厅</text>
     </view>
   </view>
 
   <view class="call-way">
     <view class="addr">
-      <text>广州市海珠区唐婕大厦1楼</text>
+      <text>越秀区惠福东路550号星座广场3楼(近北京路步行街)</text>
     </view>
     <view class="tell">
-      <text>13033332522</text>
+      <text>020-83234998</text>
     </view>
   </view>
 
   <view class="time">
     <view class="worktime">
       <text>营业时间</text>
-      <text class="time-r">10:30-22:00</text>
+      <text class="time-r">11:00-22:30</text>
     </view>
     <view class="intro-info">
-      <text>门店介绍:</text>
+      <text class="intro-title">门店介绍：</text>
+      <text class="intro-content">“御碟·私厨坊”主要经营有法式菜、越南菜、泰国菜、闽菜、湘菜以及东南亚的部分精品菜肴于一身，港式甜品等。其多元性不仅仅体现在菜品上，餐厅从环境到员工，从餐品到服务，点点滴滴，仿佛餐厅每一个细胞都在诠释展现御碟私厨坊这个品牌独特的魅力。</text>
     </view>
   </view>
 </view>

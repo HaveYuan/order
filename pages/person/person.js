@@ -14,7 +14,7 @@ Page({
     userinfo: [],
     res: [],
     code: '',
-    phoneNum: '',
+    phoneNum: ''
   },
 
   //我的订单页面显示
@@ -33,13 +33,6 @@ Page({
     })
   },
 
-  //跳转到菜单页
-  rePrev: function() {
-    wx.navigateBack({
-      url: '../goods/goods'
-    })
-  },
-
   //跳转到修改个人信息页
   change_info: function() {
     var nickname = this.data.nickname;
@@ -48,7 +41,7 @@ Page({
     var phoneNum = this.data.phoneNum;
 
     wx.navigateTo({
-      url: 'changeInfo/changeInfo?nickname='+nickname+'&&gender='+gender+'&&avatarUrl='+avatarUrl+'&&phoneNum='+phoneNum
+      url: '../changeInfo/changeInfo?nickname='+nickname+'&&gender='+gender+'&&avatarUrl='+avatarUrl+'&&phoneNum='+phoneNum
     })
   },
 
@@ -66,7 +59,7 @@ Page({
 
     //调取数据库用户数据
     wx.request({
-      url: 'http://localhost/PHP/getUserInfo.php',
+      url: 'https://www.070703.club/webchat_order/getUserInfo.php',
       data: {
         openid: openid
       },
@@ -84,12 +77,12 @@ Page({
     // 页面显示
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res.windowHeight);
+        //console.log(res.windowHeight);
         var height = res.windowHeight - 183;   //footerpannelheight为底部组件的高度
         that.setData({
           scrollHeight: height
         });
-        console.log(height);
+        //console.log(height);
       }
     })
   },

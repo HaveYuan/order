@@ -1,9 +1,5 @@
 
-<view class="header">
-  <view class="re" bindtap="rePrev" bindtap="returnPerson"></view>
-  <text>修改资料</text>
-</view>
-
+<common-header title="修改资料"></common-header>
 <view class="info-box">
   <view class="con">
     <text class="i">头像</text>

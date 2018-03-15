@@ -17,14 +17,6 @@ Page({
     act5: false,                  
   },
 
-
-  //返回菜单页
-  returngoods: function() {
-    wx.navigateBack({
-      url: '../goods/goods'
-    })
-  },
-
   //单选事件
   hotCheckedChange: function(e) {
     this.setData({

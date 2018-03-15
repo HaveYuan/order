@@ -1,19 +1,4 @@
 
-.header{
-  height: 40px;
-  line-height: 40px;
-  background: #fff;
-  font-size: 32rpx;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
-  position: relative;
-}
-.re{
-  position: absolute;
-  width: 12%;
-  height: 100%;
-  background: url(../../../img/return.png) no-repeat center center;
-}
 .user_info{
   width: 100%;
   height: 100px;
@@ -44,8 +29,8 @@
 }
 .changeInfo{
   width: 17px;
-  height: 100%;
-  background: url(../../img/right.png) no-repeat center;
+  height: 32px;
+  /*background: url(../../img/right.png) no-repeat center;*/
 }
 .username{
   margin-bottom: 20rpx;
@@ -57,18 +42,13 @@
   margin-left: 30rpx;
 }
 .username .man{
-  background: url(../../img/man.png) no-repeat;
+  /*background: url(../../img/man.png) no-repeat;*/
 }
 .username .female{
-  background: url(../../img/female.png) no-repeat;
+  /*background: url(../../img/female.png) no-repeat;*/
 }
 .infoShow .phonenum{
   color: #ccc;
-}
-.changeInfo{
-  height: 100%;
-  width: 17px;
-  background: url(../../img/right.png) no-repeat center;
 }
 .nav{width:100%;height:40px;display:flex;flex-direction:row;border-bottom: 1px solid #ccc;background: #fff;}
 .default{line-height:40px;text-align:center;flex:1;font-size:14px;}

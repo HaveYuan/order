@@ -1,8 +1,5 @@
 
-<view class="header">
-  <view class="re" bindtap="rePrev"></view>
-  <text>我的主页</text>
-</view>
+<common-header title="我的主页"></common-header>
 <!-- 个人信息 -->
 <view class="user_info">
   <view class="info-box">
@@ -11,17 +8,17 @@
   <view class="infoShow">
     <view class="username">
       <text>{{nickname}}</text>
-      <span wx:if="{{gender == 1 || gender == 0}}" class="sex man"></span>
-      <span wx:if="{{gender == 2}}" class="sex female"></span>
+      <image wx:if="{{gender == 1 || gender == 0}}" src="../../img/man.png" class="sex man"></image>
+      <image wx:if="{{gender == 2}}" src="../../img/female.png" class="sex female"></image>
     </view>
     <text class="phonenum" wx:if="{{phoneNum != null}}">{{phoneNum}}</text>
     <text class="phonenum" wx:if="{{phoneNum == null}}">暂无手机号</text>
   </view>
-  <view class="changeInfo" bindtap="change_info"></view>
+  <image src="../../img/right.png" class="changeInfo" bindtap="change_info"></image>
 </view>
 <view class="nav bc_white">
   <view class="{{myOrder?'black':'default'}}" bindtap="my_order">
-    <text>我的订单</text>
+    <text>已点订单</text>
   </view>
   <view class="line">|</view>
   <view class="{{serverInfo?'black':'default'}}" bindtap="server_info">
@@ -42,7 +39,7 @@
           <image src="../../img/shop.jpg"></image>
         </view>
         <view class="orderMiddle">
-          <view class="re-name">米石科技</view>
+          <view class="re-name">御碟·私厨坊</view>
           <view class="total">
             <view class="orderLeft">1人共点了3份</view>
             <view class="orderRight">共计<span>￥75元</span></view>
@@ -61,7 +58,7 @@
           <image src="../../img/shop.jpg"></image>
         </view>
         <view class="orderMiddle">
-          <view class="re-name">米石科技</view>
+          <view class="re-name">御碟·私厨坊</view>
           <view class="total">
             <view class="orderLeft">1人共点了3份</view>
             <view class="orderRight">共计<span>￥75元</span></view>

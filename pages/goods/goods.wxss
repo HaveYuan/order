@@ -548,4 +548,15 @@
 .intro-info{
   padding: 30rpx 0;
 }
+.intro-info text{
+  display: block;
+  float: left;
+  height: 100%;
+}
+.intro-title{
+  width: 20%;
+}
+.intro-content{
+  width: 80%;
+}
 

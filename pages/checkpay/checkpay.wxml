@@ -1,9 +1,5 @@
 
-<view class="header">
-  <view class="re" bindtap="rePrev" bindtap="returngoods"></view>
-  <text>订单确认</text>
-</view>
-
+<common-header title="订单确认"></common-header>
 <scroll-view scroll-y="true" style="height:{{height}}px">
   <!-- 餐桌号 -->
   <view class="table">

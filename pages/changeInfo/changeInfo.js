@@ -18,13 +18,6 @@ Page({
     openid: ''
   },
 
-  //返回个人信息页
-  returnPerson: function() {
-    wx.navigateBack({
-      url: '../person'
-    })
-  },
-
   //按钮按下时样式变化，false时按钮变小，true时按钮不变化
   canltouchstart: function() {
     this.setData({
@@ -84,7 +77,7 @@ Page({
     }else {
       //将修改后的值传到后台
       wx.request({
-        url: 'http://localhost/PHP/changeInfo.php',
+        url: 'https://www.070703.club/webchat_order/changeInfo.php',
         data: {
           openid: this.data.openid,
           phone: phoneNum1
@@ -135,7 +128,7 @@ Page({
       })
     }else{
       wx.request({
-        url: 'http://localhost/PHP/changeInfo.php',
+        url: 'https://www.070703.club/webchat_order/changeInfo.php',
         data: {
           openid: this.data.openid,
           nick: nickname1
@@ -163,7 +156,7 @@ Page({
   changeSex: function(e) {
     var sex = e.detail.value;
     wx.request({
-      url: 'http://localhost/PHP/changeInfo.php',
+      url: 'https://www.070703.club/webchat_order/changeInfo.php',
       data: {
         openid: this.data.openid,
         sex: sex
