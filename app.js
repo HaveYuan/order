@@ -7,7 +7,7 @@ App({
     wx.setStorageSync('logs', logs)
   
     var that = this;
-
+ 
     //调用登录接口获取openid
     wx.login({
       success: function(res) {
